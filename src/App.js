@@ -1,38 +1,21 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { fetchUsers } from './actions/users'
-import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Login from './pages/Login'
 
 class App extends Component {
-  componentDidMount() {
-    this.props.dispatch(fetchUsers())
-  }
+
   render() {
-    console.log('dios',this.props.users)
     return (
-      <div className="App">
-        <header className="App-header">
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer" 
-          >
-            {JSON.stringify(this.props.users)}
-          </a>
-        </header>
-      </div>
-    );
+      <Router>
+          <div>
+              <Route path='/' exact component={Login} />
+          </div>
+      </Router>
+    )
   }
 }
 
-function mapStateToProps ({ users, questions }) {
-  console.log('Holita', users)
-  return {
-    users,
-    questions
-  }
-}
 
-export default connect(mapStateToProps)(App)
+
+export default App
 
