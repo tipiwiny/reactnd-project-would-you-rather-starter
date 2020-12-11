@@ -14,7 +14,7 @@ let users = {
   tylermcginnis: {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
-    avatarURL: 'https://avatars.dicebear.com/v2/female/a1f0709f5447871f2da2b33a1750805c.svg',
+    avatarURL: 'https://robohash.org/a1f0709f5447871f2da2b33a1750805c?set=set4&bgset=&size=400x400',
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -24,7 +24,7 @@ let users = {
   johndoe: {
     id: 'johndoe',
     name: 'John Doe',
-    avatarURL: 'https://robohash.org/a1f0709f5447871f2da2b33a1750805c?set=set4&bgset=&size=400x400',
+    avatarURL: 'https://robohash.org/f206f2594b6d164ce3bae88e7333e078?set=set4&bgset=&size=200x200',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',

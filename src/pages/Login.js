@@ -7,13 +7,14 @@ import MyInputSelect from '../components/MyInputSelect'
 
 class Login extends Component {
     state = {
-        selectedUser: ""
+        selectedUser: { value: ""}
     }
   componentDidMount() {
         this.props.dispatch(fetchUsers())
   }
   onChangeSelect(value) {
-    this.setState({selectedUser: value})
+    const selectedUser = this.props.users.find(({id})=> (id === value))
+    this.setState({selectedUser: { ...selectedUser, value}})
   }
   login() {
     this.props.dispatch(setAuthedUser(this.state.selectedUser))
@@ -25,8 +26,8 @@ class Login extends Component {
       const {selectedUser} = this.state
     return (
       <div>
-          <MyInputSelect options={optionsUsers} label="Users Login" titleInput="Choose User" onChangeValue={this.onChangeSelect.bind(this)} selected={selectedUser}/>
-          <MyButton title="Login" disabled={!selectedUser} onClick={this.login.bind(this)}/>
+          <MyInputSelect options={optionsUsers} label="Users Login" titleInput="Choose User" onChangeValue={this.onChangeSelect.bind(this)} selected={selectedUser.value}/>
+          <MyButton title="Login" disabled={!selectedUser.value} onClick={this.login.bind(this)}/>
       </div>
     )
   }
