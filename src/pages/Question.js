@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import MyVote from '../components/MyVote'
+import MyQuestionResult from '../components/MyQuestionResult'
 import { getQuestion } from '../actions/questions'
 import { saveVote } from '../actions/users'
 
@@ -21,8 +22,9 @@ class Question extends Component {
      
     }
     render() {
+        const {question, authedUser} =  this.props
         return (<div>
-            {this.props.loading ? (this.props.answered ? 'Si': (<MyVote question={this.props.question} submitVote={this.submitVote.bind(this)}/>)): <div> Loading question </div> }
+            {this.props.loading ? (this.props.answered ? <MyQuestionResult question={question} user={authedUser}/>: (<MyVote question={question} submitVote={this.submitVote.bind(this)}/>)): <div> Loading question </div> }
          </div>)
     }
 }
