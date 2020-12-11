@@ -7,6 +7,7 @@ import Question from './pages/Question'
 import MyHeader from './components/MyHeader'
 import { clearUser } from './actions/authedUser'
 import PrivateRoute from './utils/PrivateRoute'
+import AddQuestion from './pages/AddQuestion'
 
 class App extends Component {
   logout() {
@@ -20,6 +21,7 @@ class App extends Component {
           <Route path='/' exact component={Login} />
           <PrivateRoute path='/home' exact component={Home} authed={!!this.props.authedUser.id} />
           <PrivateRoute  exact path='/questions/:question_id' component={Question} authed={!!this.props.authedUser.id}/>
+          <PrivateRoute  exact path='/add' component={AddQuestion} authed={!!this.props.authedUser.id}/>
         </div>
       </Router>
     )

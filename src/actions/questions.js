@@ -1,7 +1,8 @@
-import { getQuestions, getUsers } from '../utils/api'
+import { getQuestions, getUsers, saveQuestion } from '../utils/api'
 export const FETCH_QUESTIONS = 'FETCH_QUESTIONS'
 export const GET_QUESTION = 'GET_QUESTION'
 
+export const ADD_QUESTION = 'ADD_QUESTION'
 
 
 
@@ -21,5 +22,12 @@ export const getQuestion = (idQuestion) => async dispatch => {
   dispatch({  
     type: GET_QUESTION,
     question: {...question, user: author}
+  });
+};
+
+export const addQuestion = (payload) => async dispatch => {
+  await saveQuestion(payload)
+  dispatch({  
+    type: ADD_QUESTION,
   });
 };
