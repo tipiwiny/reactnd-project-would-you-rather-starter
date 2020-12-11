@@ -26,20 +26,20 @@ class Home extends Component {
         this.setState({activeTab: key})
     }
     goToQuestion(q) {
-        console.log(q)
+        this.props.history.push(`/questions/${q.id}`)
     }
     render() {
         const {activeTab} = this.state
         return (<div>
         <MyTab options ={options} active={activeTab} onChangeSelected={this.setActiveTab.bind(this)}>
-        <div>{this.props[activeTab].map(question => (<MyCard key={question.id} question={question} onClickButton={this.goToQuestion}></MyCard>))}</div>
+        <div>{this.props[activeTab].map(question => (<MyCard key={question.id} question={question} onClickButton={this.goToQuestion.bind(this)}></MyCard>))}</div>
         </MyTab>
       </div>)
     }
 }
 
-function mapStateToProps ({  questions , authedUser, users}) {
-    const usersQuestions = questions.map(question => {
+function mapStateToProps ({  questions: {allQuestions}, authedUser, users}) {
+    const usersQuestions = allQuestions.map(question => {
         const {name, avatarURL,id} = users.find(({id}) => id === question.author)
         return { ...question, user: { name, avatarURL, id}}
     }).sort((a,b) => {

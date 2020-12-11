@@ -1,4 +1,4 @@
-const { default: MyButton } = require("./MyButton");
+import MyButton from './MyButton'
 
 const  MyCardQuestion = (({question, onClickButton}) => (
 <div className="col s12 m7">
