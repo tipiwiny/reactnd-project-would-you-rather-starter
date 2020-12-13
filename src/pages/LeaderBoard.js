@@ -1,8 +1,12 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
+import { fetchUsers } from '../actions/users'
 import MyCardPosition from '../components/MyCardPosition'
 
 class LeaderBoard extends Component {
+    componentDidMount() {
+        this.props.dispatch(fetchUsers())
+    }
     render() {
         return (<div>
             {this.props.ranking.map ((user, key) =>(<MyCardPosition key={user.id} user={user} position={key + 1}/>))}
